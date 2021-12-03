@@ -12,11 +12,12 @@ public class ChangeCard : MonoBehaviour
     public String[] names, names2, names3;
     public int[] valori, valori2, valori3;
     private int soft = 1, hard = 0;
-    public int val, rand2, rand;
+    public int val, rand;
     public GameObject Photo, Txt, Timer;
     public GameObject Coin1, Coin2;
     public float timeLeft = 5.0f;
     public Home home;
+    private bool randomUpdate = true;
     public void Update()
     {
         Coin1.gameObject.SetActive(false);
@@ -46,33 +47,43 @@ public class ChangeCard : MonoBehaviour
             notcorrect2 += 1;
             gameObject.SetActive(false);
             timeLeft = 5.0f;
+            randomUpdate = true;
             Coin1.gameObject.SetActive(true);
             Coin2.gameObject.SetActive(true);
         }
     }
     public void ChangeImg()
     {
-        rand2 = (int) Math.Round(Random.value);
-        rand = rand2 * sprite.Length;
-        Photo.GetComponent<Image>().overrideSprite = sprite[rand];
-        Txt.GetComponent<Text>().text = names[rand];
-        val = valori[rand];
+        if (randomUpdate)
+        {
+            rand = Random.Range(0, sprite.Length);
+            randomUpdate = false;
+            Photo.GetComponent<Image>().overrideSprite = sprite[rand];
+            Txt.GetComponent<Text>().text = names[rand];
+            val = valori[rand];
+        }
     }
     public void ChangeImg2()
     {
-        rand2 = (int) Math.Round(Random.value);
-        rand = rand2 * sprite.Length;
-        Photo.GetComponent<Image>().overrideSprite = sprite2[rand];
-        Txt.GetComponent<Text>().text = names2[rand];
-        val = valori2[rand];
+        if (randomUpdate)
+        {
+            rand = Random.Range(0, sprite2.Length);
+            randomUpdate = false;
+            Photo.GetComponent<Image>().overrideSprite = sprite2[rand];
+            Txt.GetComponent<Text>().text = names2[rand];
+            val = valori2[rand];
+        }
     }
     public void ChangeImg3()
     {
-        rand2 = (int) Math.Round(Random.value);
-        rand = rand2 * sprite.Length;
-        Photo.GetComponent<Image>().overrideSprite = sprite3[rand];
-        Txt.GetComponent<Text>().text = names3[rand];
-        val = valori3[rand];
+        if (randomUpdate)
+        {
+            rand = Random.Range(0, sprite3.Length);
+            randomUpdate = false;
+            Photo.GetComponent<Image>().overrideSprite = sprite3[rand];
+            Txt.GetComponent<Text>().text = names3[rand];
+            val = valori3[rand];
+        }
     }
     public void SoftSound()
     {
@@ -80,9 +91,9 @@ public class ChangeCard : MonoBehaviour
             correct2 += 1;
         else 
             notcorrect2 += 1;
-        rand2 = 0;
         gameObject.SetActive(false);
         timeLeft = 5.0f;
+        randomUpdate = true;
         Coin1.gameObject.SetActive(true);
         Coin2.gameObject.SetActive(true);
     }
@@ -92,9 +103,9 @@ public class ChangeCard : MonoBehaviour
             correct2 += 1;
         else 
             notcorrect2 += 1;
-        rand2 = 0;
         gameObject.SetActive(false);
         timeLeft = 5.0f;
+        randomUpdate = true;
         Coin1.gameObject.SetActive(true);
         Coin2.gameObject.SetActive(true);
     }

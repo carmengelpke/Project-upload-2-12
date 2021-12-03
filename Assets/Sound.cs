@@ -14,8 +14,9 @@ public class Sound : MonoBehaviour
     public GameObject Coin1, Coin2;
     public float timeLeft = 5.0f;
     public Home home;
+    private bool randomUpdate = true;
 
-    public void Start()
+    public void Update()
     {
         Coin1.gameObject.SetActive(false);
         Coin2.gameObject.SetActive(false);
@@ -45,34 +46,46 @@ public class Sound : MonoBehaviour
             notcorrect3 += 1;
             gameObject.SetActive(false);
             timeLeft = 5.0f;
+            randomUpdate = true;
             Coin1.gameObject.SetActive(true);
             Coin2.gameObject.SetActive(true);
         }
     }
-    // Se serve riaggiungo l'update che è uguale allo start
     public void ChangeSound()
     {
-        rand = Random.Range(0, audioClipArray.Length);
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = audioClipArray[rand];
-        audioSource.PlayOneShot(audioSource.clip);
-        val = valori[rand];
+        if (randomUpdate)
+        {
+            rand = Random.Range(0, audioClipArray.Length);
+            randomUpdate = false;
+            audioSource = GetComponent<AudioSource>();
+            audioSource.clip = audioClipArray[rand];
+            audioSource.PlayOneShot(audioSource.clip);
+            val = valori[rand];
+        }
     }
     public void ChangeSound2()
     {
-        rand = Random.Range(0, audioClipArray2.Length);
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = audioClipArray2[rand];
-        audioSource.PlayOneShot(audioSource.clip);
-        val = valori2[rand];
+        if (randomUpdate)
+        {
+            rand = Random.Range(0, audioClipArray2.Length);
+            randomUpdate = false;
+            audioSource = GetComponent<AudioSource>();
+            audioSource.clip = audioClipArray2[rand];
+            audioSource.PlayOneShot(audioSource.clip);
+            val = valori2[rand];
+        }
     }
     public void ChangeSound3()
     {
-        rand = Random.Range(0, audioClipArray3.Length);
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = audioClipArray3[rand];
-        audioSource.PlayOneShot(audioSource.clip);
-        val = valori3[rand];
+        if (randomUpdate)
+        {
+            rand = Random.Range(0, audioClipArray3.Length);
+            randomUpdate = false;
+            audioSource = GetComponent<AudioSource>();
+            audioSource.clip = audioClipArray3[rand];
+            audioSource.PlayOneShot(audioSource.clip);
+            val = valori3[rand];
+        }
     }
     public void SoftSound()
     {
@@ -82,6 +95,7 @@ public class Sound : MonoBehaviour
             notcorrect3 += 1;
         gameObject.SetActive(false);
         timeLeft = 5.0f;
+        randomUpdate = true;
         Coin1.gameObject.SetActive(true);
         Coin2.gameObject.SetActive(true);
     }
@@ -93,6 +107,7 @@ public class Sound : MonoBehaviour
             notcorrect3 += 1;
         gameObject.SetActive(false);
         timeLeft = 5.0f;
+        randomUpdate = true;
         Coin1.gameObject.SetActive(true);
         Coin2.gameObject.SetActive(true);
     }
