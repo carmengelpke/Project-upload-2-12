@@ -88,7 +88,7 @@ public class ChangeCard : MonoBehaviour
     public void SoftSound()
     {
         if (val == soft)
-            correct2 += 1;
+            PlayerMovement.totalCorrect += 1;
         else 
             notcorrect2 += 1;
         gameObject.SetActive(false);
@@ -97,11 +97,12 @@ public class ChangeCard : MonoBehaviour
         Coin1.gameObject.SetActive(true);
         Coin2.gameObject.SetActive(true);
     }
+
     public void HardSound()
     {
-        if (val==hard)
-            correct2 += 1;
-        else 
+        if (val == hard)
+            PlayerMovement.totalCorrect += 1;
+        else
             notcorrect2 += 1;
         gameObject.SetActive(false);
         timeLeft = 5.0f;

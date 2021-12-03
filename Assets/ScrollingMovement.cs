@@ -8,6 +8,9 @@ public class ScrollingMovement : MonoBehaviour
 {
     public float speed;
     private Vector2 newPosition;
+    public Home home;
+    public Sound sound;
+    public ChangeCard ChangeCard;
     private void Update()
     {
         transform.Translate(Vector2.down * speed * Time.deltaTime);

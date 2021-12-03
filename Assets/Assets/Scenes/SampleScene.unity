@@ -168,6 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  home: {fileID: 0}
+  sound: {fileID: 0}
+  ChangeCard: {fileID: 0}
 --- !u!212 &45686051
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -403,15 +406,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4d6c584f1ef041d4baa6a98cbfd3ca94, type: 3}
   - {fileID: 8300000, guid: 37fc1b69297dd2c40b4097632a3bc349, type: 3}
   - {fileID: 8300000, guid: 2d61712b743dc4a4ba534f168d16e22b, type: 3}
-  - {fileID: 8300000, guid: 556b23057f709b74a9d02515ab8d0c73, type: 3}
+  - {fileID: 8300000, guid: caa5bf3402132564184a2e3c957ab6b0, type: 3}
   - {fileID: 8300000, guid: e5951900681b6c5458721201ee2d14f4, type: 3}
   - {fileID: 8300000, guid: ff2d1acacbf1bfe41b2b3a9d31bb2799, type: 3}
   - {fileID: 8300000, guid: 050cb45c77f8d814f9ea8471c0f5dcc1, type: 3}
   - {fileID: 8300000, guid: 5f3cbd2fa85061840ac5b8d75c67aa4d, type: 3}
-  - {fileID: 8300000, guid: 98802eb2cb46be9478a726ff399ca75a, type: 3}
-  - {fileID: 8300000, guid: 153f8283d4ec8264db0148adf61902e1, type: 3}
   - {fileID: 8300000, guid: 0537275fb3c208645a693dd1d1eb58e0, type: 3}
-  - {fileID: 8300000, guid: caa5bf3402132564184a2e3c957ab6b0, type: 3}
+  - {fileID: 8300000, guid: 153f8283d4ec8264db0148adf61902e1, type: 3}
   audioClipArray3:
   - {fileID: 8300000, guid: 1e213a9f5e82ff04baafd620458ff108, type: 3}
   - {fileID: 8300000, guid: 6324ebeaef413494ca392afcbea7da1a, type: 3}
@@ -426,9 +427,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7aadffcb5fe411948946d576084603d5, type: 3}
   - {fileID: 8300000, guid: 2859e7ff344c1494aaf06fe780e645b6, type: 3}
   - {fileID: 8300000, guid: 19cfd03572923014b97d3d799baf842f, type: 3}
-  valori: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  valori2: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  valori3: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  valori: 00000000000000000000000000000000000000000000000000000000000000000100000001000000010000000000000000000000000000000000000000000000010000000100000001000000010000000100000001000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  valori2: 00000000000000000000000000000000000000000000000001000000010000000100000001000000000000000000000000000000000000000000000001000000010000000100000000000000000000000000000000000000000000000000000000000000
+  valori3: 00000000000000000000000000000000000000000000000000000000010000000100000000000000000000000000000000000000
   correct3: 0
   notcorrect3: 0
   Timer: {fileID: 147708961}
@@ -1130,6 +1131,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  home: {fileID: 0}
+  sound: {fileID: 0}
+  ChangeCard: {fileID: 0}
 --- !u!212 &559651009
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2306,6 +2310,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  home: {fileID: 0}
+  sound: {fileID: 0}
+  ChangeCard: {fileID: 0}
 --- !u!212 &833630333
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2995,6 +3002,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  home: {fileID: 0}
+  sound: {fileID: 0}
+  ChangeCard: {fileID: 0}
 --- !u!212 &1022773245
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3375,13 +3385,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e971a589b2d774881ee51bf2f32a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TxtLevel: {fileID: 1581163446}
   Canvas: {fileID: 2043269521}
   CanvasSetting: {fileID: 826105384}
   Coin: {fileID: 1022425325}
   Coin2: {fileID: 806452552}
   Player: {fileID: 1019097037}
   TxtLetter: {fileID: 1340187559}
+  TxtLevel: {fileID: 1581163446}
   prob: 0.9
   level: 1
   letter: 1
@@ -3890,8 +3900,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -301, y: -322}
-  m_SizeDelta: {x: 1100, y: 300}
+  m_AnchoredPosition: {x: -280, y: -322}
+  m_SizeDelta: {x: 1300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1362085880
 MonoBehaviour:
@@ -3926,7 +3936,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Select the level:'
+  m_Text: 'Select the difficulty:'
 --- !u!222 &1362085881
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4317,22 +4327,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 51f387db7172def4eb29c81fa9bcae0a, type: 3}
   - {fileID: 21300000, guid: 80a8f7388b36e3b4e9dd621359a535d4, type: 3}
   - {fileID: 21300000, guid: 5d652f53180dd9d46897d1f17eb893e4, type: 3}
-  - {fileID: 21300000, guid: a1f0a5d578f4e5b43aa5e7626c39f896, type: 3}
+  - {fileID: 21300000, guid: 369f22fbb75460148ba7ecb447e4eb60, type: 3}
   - {fileID: 21300000, guid: 3df67c9f9e7996f439a99dd4235bd171, type: 3}
   - {fileID: 21300000, guid: 3c0e2b4a9ce8182468965501e759532b, type: 3}
   - {fileID: 21300000, guid: b39ca9c63b7c496439752ab5659926a1, type: 3}
   - {fileID: 21300000, guid: 01dd9dfe9151c054fa359a9a320f0be4, type: 3}
-  - {fileID: 21300000, guid: 2afd51c04b10e2840a0299d81d68f1ed, type: 3}
-  - {fileID: 21300000, guid: 8c4f357400ad6f1459bb446c34cb2649, type: 3}
   - {fileID: 21300000, guid: 1296b590dd2632542919ecaa398d148f, type: 3}
-  - {fileID: 21300000, guid: 369f22fbb75460148ba7ecb447e4eb60, type: 3}
+  - {fileID: 21300000, guid: 8c4f357400ad6f1459bb446c34cb2649, type: 3}
   sprite3:
-  - {fileID: 21300000, guid: ffab44b33b6e02b4d8f9d77e76ab5aab, type: 3}
-  - {fileID: 21300000, guid: fc1e1cb60e1222943b8ca4a3db304271, type: 3}
-  - {fileID: 21300000, guid: 716a574a01f54624db911a380d695f39, type: 3}
-  - {fileID: 21300000, guid: 84ce86ef5a72657459ade81647a574f1, type: 3}
-  - {fileID: 21300000, guid: 4f8e79c479f77074cbdafe02900a6bd9, type: 3}
-  - {fileID: 21300000, guid: 5ca1a0f59d04572488ea450001485784, type: 3}
   - {fileID: 21300000, guid: cb501daac160fa749bdcb57d984b2a59, type: 3}
   - {fileID: 21300000, guid: 02f5884839c87e946b5ad9d27db4c408, type: 3}
   - {fileID: 21300000, guid: 44fde34644301bd49becb3807675b6db, type: 3}
@@ -4345,29 +4347,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 03d03e2ce288666448477c878f3e88b3, type: 3}
   - {fileID: 21300000, guid: cd9f3ed70a43c8247906cb4829cdc8b6, type: 3}
   - {fileID: 21300000, guid: ff3a168249e17244eb4950df6ae01043, type: 3}
-  - {fileID: 21300000, guid: 91180b6c9d506d94eb6ac5d398c41d12, type: 3}
-  - {fileID: 21300000, guid: 833f3b869c9c91f43b09f69a1878aae6, type: 3}
-  - {fileID: 21300000, guid: d36d521197f7c7c46a9ff3b7dda2a069, type: 3}
-  - {fileID: 21300000, guid: 09c0201932324b448a3f0fc14f4977c8, type: 3}
-  - {fileID: 21300000, guid: c4e34ade2ee5fab4b819841d4e236098, type: 3}
-  - {fileID: 21300000, guid: 828327484496bf247a6188eb66fefb7b, type: 3}
-  - {fileID: 21300000, guid: 51ba11565f1c52d4c9395efc88cb9953, type: 3}
-  - {fileID: 21300000, guid: cd69f2e0bdb53c94aab049515c2a29c0, type: 3}
-  - {fileID: 21300000, guid: 8f62833e8707307448ff0cda55c95325, type: 3}
-  - {fileID: 21300000, guid: f98ba5c317ad76a4aa52ec132d7e2481, type: 3}
-  - {fileID: 21300000, guid: 3da405bb2b6ab13439489faaa162bb64, type: 3}
-  - {fileID: 21300000, guid: f5a3d09a02ab4c24ba9f598f995a9224, type: 3}
-  - {fileID: 21300000, guid: e5af4fc4229d4b54992abbd2e213ab63, type: 3}
-  - {fileID: 21300000, guid: 69bdcbb47725d6448a6417ede46d2f7a, type: 3}
-  - {fileID: 21300000, guid: c2d32bee11db6064d91124dea0c23fb1, type: 3}
-  - {fileID: 21300000, guid: e6d8f279822edfa419853069f332b2c2, type: 3}
-  - {fileID: 21300000, guid: e6d8f279822edfa419853069f332b2c2, type: 3}
-  - {fileID: 21300000, guid: 6828cae166c459145b4767909f484b5f, type: 3}
-  - {fileID: 21300000, guid: e61606679befd824a91d0de6614489d8, type: 3}
-  - {fileID: 21300000, guid: 8c0dcd91f59eefd4b927f657d400d8eb, type: 3}
-  - {fileID: 21300000, guid: 00e39d0a28233e74580c2063d169d0f1, type: 3}
-  - {fileID: 21300000, guid: 64c9985e2a8983941ab348a66574f194, type: 3}
-  - {fileID: 21300000, guid: 7a332f0d1e96ab24ca7852ebd5ea870a, type: 3}
   names:
   - "Caff\xE8"
   - Cane
@@ -4423,22 +4402,14 @@ MonoBehaviour:
   - Gigante
   - Ginocchio
   - Giraffa
-  - Gnomi
+  - Guinzaglio
   - Gobba
   - Gomitolo
   - Gomme
   - Gorilla
-  - Gregge
-  - Guanto
   - Gufo
-  - Guinzaglio
+  - Guanto
   names3:
-  - Sacco
-  - Salami
-  - Salsiccia
-  - Salvadanaio
-  - Sapone
-  - Sasso
   - Scacchiera
   - Scarpe
   - Scatola
@@ -4451,34 +4422,10 @@ MonoBehaviour:
   - Scopa
   - Scorpione
   - Scudo
-  - Secchio
-  - Sedia
-  - Semaforo
-  - Sirena
-  - Siringa
-  - Smalto
-  - Soldato
-  - Sole
-  - Spaghetti
-  - Spaghi
-  - Spiagge
-  - Stagno
-  - Stella
-  - Stivale
-  - Strada
-  - Streghe
-  - Stringa
-  - Struzzi
-  - Struzzo
-  - Stufa
-  - Sughero
-  - Suola
-  - Suora
-  valori: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  valori2: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  valori3: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  valori: 0000000000000000000000000000000000000000000000000000000000000000010000000100000001000000010000000000000000000000000000000000000001000000010000000100000001000000010000000100000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000
+  valori2: 00000000000000000000000000000000000000000000000001000000010000000100000001000000000000000000000000000000000000000000000001000000010000000100000000000000000000000000000000000000000000000000000000000000
+  valori3: 000000000000000000000000000000000000000000000000010000000100000000000000000000000000000000000000
   val: 0
-  rand2: 0
   rand: 0
   Photo: {fileID: 1432725587}
   Txt: {fileID: 978329019}
@@ -4538,7 +4485,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: Easy
 --- !u!222 &1581163448
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4793,6 +4740,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  home: {fileID: 0}
+  sound: {fileID: 0}
+  ChangeCard: {fileID: 0}
 --- !u!212 &1717816044
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4940,6 +4890,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  home: {fileID: 0}
+  sound: {fileID: 0}
+  ChangeCard: {fileID: 0}
 --- !u!1 &1748053517
 GameObject:
   m_ObjectHideFlags: 0
@@ -5377,6 +5330,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  home: {fileID: 0}
+  sound: {fileID: 0}
+  ChangeCard: {fileID: 0}
 --- !u!212 &1799633315
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5473,6 +5429,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  home: {fileID: 0}
+  sound: {fileID: 0}
+  ChangeCard: {fileID: 0}
 --- !u!212 &1854899670
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5620,6 +5579,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  home: {fileID: 0}
+  sound: {fileID: 0}
+  ChangeCard: {fileID: 0}
 --- !u!1 &1865823662
 GameObject:
   m_ObjectHideFlags: 0
@@ -5665,6 +5627,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  home: {fileID: 0}
+  sound: {fileID: 0}
+  ChangeCard: {fileID: 0}
 --- !u!212 &1865823665
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6316,6 +6281,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  home: {fileID: 0}
+  sound: {fileID: 0}
+  ChangeCard: {fileID: 0}
 --- !u!212 &2003040390
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6491,6 +6459,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+  home: {fileID: 0}
+  sound: {fileID: 0}
+  ChangeCard: {fileID: 0}
 --- !u!212 &2041207960
 SpriteRenderer:
   m_ObjectHideFlags: 0
