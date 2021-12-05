@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 newPos, newPos2;
     public GameObject Canvas1, Canvas2, Canvas3, CanvasMenu, CanvasHome;
     public Home home;
+    public static int totalCorrect = 0;
     private double val;
 
     public void awake()
@@ -23,10 +24,10 @@ public class PlayerMovement : MonoBehaviour
     public void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, targetPos, speed*Time.deltaTime);
-        val = home.prob;
+        val = home.prob; // val defines the difficulty of the game (Easy, Medium, Hard)
         if (collectedCoins >= 5)
         {
-            if (Random.value > val)
+            if (Random.value > val) // decides if either sound or picture is presented, based on difficulty
             {
                 Canvas3.gameObject.SetActive(true);
             }
@@ -35,6 +36,36 @@ public class PlayerMovement : MonoBehaviour
                 Canvas2.gameObject.SetActive(true);
             }
             collectedCoins = 0;
+        }
+       
+        if (totalCorrect > 5)  // code to change te background after x correct answers
+        {
+            home.BG1.gameObject.SetActive(false);
+            home.BG2.gameObject.SetActive(true);
+        }
+        
+        else if (totalCorrect > 10)
+        {
+            home.BG2.gameObject.SetActive(false);
+            home.BG3.gameObject.SetActive(true); 
+        }
+        
+        else if (totalCorrect > 15)
+        {
+            home.BG3.gameObject.SetActive(false);
+            home.BG4.gameObject.SetActive(true); 
+        }
+        
+        else if (totalCorrect > 20)
+        {
+            home.BG4.gameObject.SetActive(false);
+            home.BG5.gameObject.SetActive(true); 
+        }
+        
+        else if (totalCorrect > 25)
+        {
+            home.BG5.gameObject.SetActive(false);
+            home.BG6.gameObject.SetActive(true); 
         }
     }
 
@@ -77,9 +108,9 @@ public class PlayerMovement : MonoBehaviour
         int rand = Random.Range(0, possiblePosition.Count);
         int rand2 = Random.Range(0, possiblePosition.Count);
         newPos.x = possiblePosition.ElementAt(rand);
-        newPos.y = 6f;
+        newPos.y = 8f;
         newPos2.x = possiblePosition.ElementAt(rand2);
-        newPos2.y = 6f;
+        newPos2.y = 8f;
         
         if (other.gameObject.name == "Coin")
         {

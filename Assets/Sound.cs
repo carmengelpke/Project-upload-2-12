@@ -90,19 +90,20 @@ public class Sound : MonoBehaviour
     public void SoftSound()
     {
         if (val == soft)
-            correct3 +=1;
+            PlayerMovement.totalCorrect += 1;
         else 
             notcorrect3 += 1;
         gameObject.SetActive(false);
         timeLeft = 5.0f;
         randomUpdate = true;
+        Debug.Log(correct3);
         Coin1.gameObject.SetActive(true);
         Coin2.gameObject.SetActive(true);
     }
     public void HardSound()
     {
         if (val == hard)
-            correct3 += 1;
+            PlayerMovement.totalCorrect += 1;
         else 
             notcorrect3 += 1;
         gameObject.SetActive(false);
