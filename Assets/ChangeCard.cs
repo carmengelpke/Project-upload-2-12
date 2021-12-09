@@ -97,7 +97,6 @@ public class ChangeCard : MonoBehaviour
         Coin1.gameObject.SetActive(true);
         Coin2.gameObject.SetActive(true);
     }
-
     public void HardSound()
     {
         if (val == hard)

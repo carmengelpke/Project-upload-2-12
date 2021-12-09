@@ -12,11 +12,12 @@ public class PlayerMovement : MonoBehaviour
     private float collectedCoins = 0;
     public List<float> possiblePosition;
     private Vector2 newPos, newPos2;
-    public GameObject Canvas1, Canvas2, Canvas3, CanvasMenu, CanvasHome;
+    public GameObject Canvas1, Canvas2, Canvas3, CanvasMenu, CanvasHome, CanvasMessage;
     public Home home;
     public static int totalCorrect = 0;
     private double val;
-
+    public float timeLeft = 5.0f;
+    private bool randomUpdate = false;
     public void awake()
     {
         targetPos = transform.position;
@@ -40,32 +41,83 @@ public class PlayerMovement : MonoBehaviour
        
         if (totalCorrect > 5)  // code to change te background after x correct answers
         {
-            home.BG1.gameObject.SetActive(false);
-            home.BG2.gameObject.SetActive(true);
+            timeLeft -= Time.deltaTime;
+            CanvasMessage.gameObject.SetActive(true);
+            if (timeLeft <= 0.0f)
+            {
+                randomUpdate = true;
+            }
+            if (randomUpdate)
+            {
+                CanvasMessage.gameObject.SetActive(false);
+                timeLeft = 5.0f;
+                home.BG1.gameObject.SetActive(false);
+                home.BG2.gameObject.SetActive(true); 
+            }
         }
-        
         else if (totalCorrect > 10)
         {
-            home.BG2.gameObject.SetActive(false);
-            home.BG3.gameObject.SetActive(true); 
+            timeLeft -= Time.deltaTime;
+            CanvasMessage.gameObject.SetActive(true);
+            if (timeLeft <= 0.0f)
+            {
+                randomUpdate = true;
+            }
+            if (randomUpdate)
+            {
+                CanvasMessage.gameObject.SetActive(false);
+                timeLeft = 5.0f;
+                home.BG2.gameObject.SetActive(false);
+                home.BG3.gameObject.SetActive(true); 
+            }
         }
-        
         else if (totalCorrect > 15)
         {
-            home.BG3.gameObject.SetActive(false);
-            home.BG4.gameObject.SetActive(true); 
+            timeLeft -= Time.deltaTime;
+            CanvasMessage.gameObject.SetActive(true);
+            if (timeLeft <= 0.0f)
+            {
+                randomUpdate = true;
+            }
+            if (randomUpdate)
+            {
+                CanvasMessage.gameObject.SetActive(false);
+                timeLeft = 5.0f;
+                home.BG3.gameObject.SetActive(false);
+                home.BG4.gameObject.SetActive(true); 
+            }
         }
-        
         else if (totalCorrect > 20)
         {
-            home.BG4.gameObject.SetActive(false);
-            home.BG5.gameObject.SetActive(true); 
+            timeLeft -= Time.deltaTime;
+            CanvasMessage.gameObject.SetActive(true);
+            if (timeLeft <= 0.0f)
+            {
+                randomUpdate = true;
+            }
+            if (randomUpdate)
+            {
+                CanvasMessage.gameObject.SetActive(false);
+                timeLeft = 5.0f;
+                home.BG4.gameObject.SetActive(false);
+                home.BG5.gameObject.SetActive(true); 
+            }
         }
-        
         else if (totalCorrect > 25)
         {
-            home.BG5.gameObject.SetActive(false);
-            home.BG6.gameObject.SetActive(true); 
+            timeLeft -= Time.deltaTime;
+            CanvasMessage.gameObject.SetActive(true);
+            if (timeLeft <= 0.0f)
+            {
+                randomUpdate = true;
+            }
+            if (randomUpdate)
+            {
+                CanvasMessage.gameObject.SetActive(false);
+                timeLeft = 5.0f;
+                home.BG5.gameObject.SetActive(false);
+                home.BG6.gameObject.SetActive(true); 
+            }
         }
     }
 
