@@ -12,13 +12,15 @@ public class PlayerMovement : MonoBehaviour
     private float collectedCoins = 0;
     public List<float> possiblePosition;
     private Vector2 newPos, newPos2;
-    public GameObject Canvas1, Canvas2, Canvas3, CanvasMenu, CanvasHome, CanvasMessage;
+    public GameObject Canvas1, Canvas2, Canvas3, CanvasMenu, CanvasHome, CanvasMessage, CanvasFinish, CanvasStat;
+    public GameObject Coin1, Coin2;
     public Home home;
     public static int totalCorrect = 0;
+    public static int totalNotCorrect = 0;
     private double val;
     public float timeLeft = 5.0f;
     private bool randomUpdate = false;
-    public void awake()
+    public void Awake()
     {
         targetPos = transform.position;
     }
@@ -39,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
             collectedCoins = 0;
         }
        
-        if (totalCorrect > 5)  // code to change te background after x correct answers
+        if (totalCorrect >= 5)  // code to change te background after x correct answers
         {
             timeLeft -= Time.deltaTime;
             CanvasMessage.gameObject.SetActive(true);
@@ -55,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
                 home.BG2.gameObject.SetActive(true); 
             }
         }
-        else if (totalCorrect > 10)
+        else if (totalCorrect >= 10)
         {
             timeLeft -= Time.deltaTime;
             CanvasMessage.gameObject.SetActive(true);
@@ -71,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
                 home.BG3.gameObject.SetActive(true); 
             }
         }
-        else if (totalCorrect > 15)
+        else if (totalCorrect >= 15)
         {
             timeLeft -= Time.deltaTime;
             CanvasMessage.gameObject.SetActive(true);
@@ -87,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
                 home.BG4.gameObject.SetActive(true); 
             }
         }
-        else if (totalCorrect > 20)
+        else if (totalCorrect >= 20)
         {
             timeLeft -= Time.deltaTime;
             CanvasMessage.gameObject.SetActive(true);
@@ -103,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
                 home.BG5.gameObject.SetActive(true); 
             }
         }
-        else if (totalCorrect > 25)
+        else if (totalCorrect >= 25)
         {
             timeLeft -= Time.deltaTime;
             CanvasMessage.gameObject.SetActive(true);
@@ -117,6 +119,22 @@ public class PlayerMovement : MonoBehaviour
                 timeLeft = 5.0f;
                 home.BG5.gameObject.SetActive(false);
                 home.BG6.gameObject.SetActive(true); 
+            }
+        }
+        else if (totalCorrect >= 30)
+        {
+            timeLeft -= Time.deltaTime;
+            CanvasFinish.gameObject.SetActive(true);
+            if (timeLeft <= 0.0f)
+            {
+                randomUpdate = true;
+            }
+            if (randomUpdate)
+            {
+                CanvasFinish.gameObject.SetActive(false);
+                timeLeft = 5.0f;
+                home.BG6.gameObject.SetActive(false);
+                CanvasHome.gameObject.SetActive(true);
             }
         }
     }
@@ -140,11 +158,15 @@ public class PlayerMovement : MonoBehaviour
     {
         Canvas1.gameObject.SetActive(false);
         Canvas2.gameObject.SetActive(false);
+        Coin1.gameObject.SetActive(false);
+        Coin2.gameObject.SetActive(false);
         CanvasMenu.gameObject.SetActive(true);
     }
     public void Resume()
     {
         Canvas1.gameObject.SetActive(true);
+        Coin1.gameObject.SetActive(true);
+        Coin2.gameObject.SetActive(true);
         Canvas2.gameObject.SetActive(false);
         CanvasMenu.gameObject.SetActive(false);
     }
@@ -154,6 +176,14 @@ public class PlayerMovement : MonoBehaviour
         Canvas2.gameObject.SetActive(false);
         CanvasMenu.gameObject.SetActive(false);
         CanvasHome.gameObject.SetActive(true);
+    }
+    public void Statistics()
+    {
+        CanvasStat.gameObject.SetActive(true);
+        Canvas1.gameObject.SetActive(false);
+        Canvas2.gameObject.SetActive(false);
+        CanvasMenu.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

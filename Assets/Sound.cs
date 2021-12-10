@@ -8,7 +8,6 @@ public class Sound : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip[] audioClipArray, audioClipArray2, audioClipArray3;
     public int[] valori, valori2, valori3;
-    public int correct3 = 0, notcorrect3 = 0; 
     private int soft = 1, hard = 0, val, rand;
     public GameObject Timer;
     public GameObject Coin1, Coin2;
@@ -43,7 +42,7 @@ public class Sound : MonoBehaviour
         Timer.GetComponent<Text>().text = (Mathf.Round(timeLeft * 10.0f) * 0.1f).ToString();
         if (timeLeft <= 0.0f)
         {
-            notcorrect3 += 1;
+            PlayerMovement.totalNotCorrect += 1;
             gameObject.SetActive(false);
             timeLeft = 5.0f;
             randomUpdate = true;
@@ -92,11 +91,11 @@ public class Sound : MonoBehaviour
         if (val == soft)
             PlayerMovement.totalCorrect += 1;
         else 
-            notcorrect3 += 1;
+            PlayerMovement.totalNotCorrect += 1;
         gameObject.SetActive(false);
         timeLeft = 5.0f;
         randomUpdate = true;
-        Debug.Log(correct3);
+        Debug.Log(PlayerMovement.totalNotCorrect);
         Coin1.gameObject.SetActive(true);
         Coin2.gameObject.SetActive(true);
     }
@@ -105,7 +104,7 @@ public class Sound : MonoBehaviour
         if (val == hard)
             PlayerMovement.totalCorrect += 1;
         else 
-            notcorrect3 += 1;
+            PlayerMovement.totalNotCorrect += 1;
         gameObject.SetActive(false);
         timeLeft = 5.0f;
         randomUpdate = true;
