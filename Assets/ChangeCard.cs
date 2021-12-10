@@ -7,7 +7,6 @@ using Random = UnityEngine.Random;
 
 public class ChangeCard : MonoBehaviour
 {
-    public int correct2 = 0, notcorrect2 = 0;
     public Sprite[] sprite, sprite2, sprite3;
     public String[] names, names2, names3;
     public int[] valori, valori2, valori3;
@@ -44,7 +43,7 @@ public class ChangeCard : MonoBehaviour
         Timer.GetComponent<Text>().text = (Mathf.Round(timeLeft * 10.0f) * 0.1f).ToString();
         if (timeLeft <= 0.0f)
         {
-            notcorrect2 += 1;
+            PlayerMovement.totalNotCorrect += 1;
             gameObject.SetActive(false);
             timeLeft = 5.0f;
             randomUpdate = true;
@@ -90,20 +89,19 @@ public class ChangeCard : MonoBehaviour
         if (val == soft)
             PlayerMovement.totalCorrect += 1;
         else 
-            notcorrect2 += 1;
+            PlayerMovement.totalNotCorrect += 1;
         gameObject.SetActive(false);
         timeLeft = 5.0f;
         randomUpdate = true;
         Coin1.gameObject.SetActive(true);
         Coin2.gameObject.SetActive(true);
     }
-
     public void HardSound()
     {
         if (val == hard)
             PlayerMovement.totalCorrect += 1;
         else
-            notcorrect2 += 1;
+            PlayerMovement.totalNotCorrect += 1;
         gameObject.SetActive(false);
         timeLeft = 5.0f;
         randomUpdate = true;
