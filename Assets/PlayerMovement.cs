@@ -177,6 +177,7 @@ public class PlayerMovement : MonoBehaviour
         Coin1.gameObject.SetActive(false);
         Coin2.gameObject.SetActive(false);
         CanvasMenu.gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
     public void Resume()
     {
@@ -185,6 +186,7 @@ public class PlayerMovement : MonoBehaviour
         Coin2.gameObject.SetActive(true);
         Canvas2.gameObject.SetActive(false);
         CanvasMenu.gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
     public void Home()
     {
@@ -192,6 +194,7 @@ public class PlayerMovement : MonoBehaviour
         Canvas2.gameObject.SetActive(false);
         CanvasMenu.gameObject.SetActive(false);
         CanvasHome.gameObject.SetActive(true);
+        Time.timeScale = 1;
     }
     public void Statistics()
     {
