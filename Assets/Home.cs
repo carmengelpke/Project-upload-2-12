@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -59,9 +60,9 @@ public class Home : MonoBehaviour
         {
             level -= 1;
             if (level == 1)
-                TxtLevel.GetComponent<Text>().text = "Easy";
+                TxtLevel.GetComponent<TMP_Text>().text = "Easy";
             if (level == 2)
-                TxtLevel.GetComponent<Text>().text = "Medium";
+                TxtLevel.GetComponent<TMP_Text>().text = "Medium";
         }
     }
     public void UpperLevel()
@@ -70,9 +71,9 @@ public class Home : MonoBehaviour
         {
             level += 1;
             if (level == 3)
-                TxtLevel.GetComponent<Text>().text = "Hard";
+                TxtLevel.GetComponent<TMP_Text>().text = "Hard";
             if (level == 2)
-                TxtLevel.GetComponent<Text>().text = "Medium";
+                TxtLevel.GetComponent<TMP_Text>().text = "Medium";
         }
     }
     public void LowerLetter()
@@ -81,9 +82,9 @@ public class Home : MonoBehaviour
         {
             letter -= 1;
             if (letter == 1) 
-                TxtLetter.GetComponent<Text>().text = "C";
+                TxtLetter.GetComponent<TMP_Text>().text = "C";
             if (letter == 2)
-                TxtLetter.GetComponent<Text>().text = "G";
+                TxtLetter.GetComponent<TMP_Text>().text = "G";
         }
     }
     public void UpperLetter()
@@ -92,9 +93,9 @@ public class Home : MonoBehaviour
             {
                 letter += 1;
                 if (letter == 3) 
-                    TxtLetter.GetComponent<Text>().text = "S";
+                    TxtLetter.GetComponent<TMP_Text>().text = "SC";
                 if (letter == 2)
-                    TxtLetter.GetComponent<Text>().text = "G";
+                    TxtLetter.GetComponent<TMP_Text>().text = "G";
             }
         }
     public void Setting()

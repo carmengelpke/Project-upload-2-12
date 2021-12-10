@@ -141,12 +141,14 @@ public class PlayerMovement : MonoBehaviour
         Canvas1.gameObject.SetActive(false);
         Canvas2.gameObject.SetActive(false);
         CanvasMenu.gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
     public void Resume()
     {
         Canvas1.gameObject.SetActive(true);
         Canvas2.gameObject.SetActive(false);
         CanvasMenu.gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
     public void Home()
     {
@@ -154,6 +156,7 @@ public class PlayerMovement : MonoBehaviour
         Canvas2.gameObject.SetActive(false);
         CanvasMenu.gameObject.SetActive(false);
         CanvasHome.gameObject.SetActive(true);
+        Time.timeScale = 1;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
