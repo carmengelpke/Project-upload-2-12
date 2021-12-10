@@ -58,6 +58,7 @@
      <Compile Include="Assets\PlayerMovement.cs" />
      <Compile Include="Assets\Home.cs" />
      <Compile Include="Assets\ChangeCard.cs" />
+     <Compile Include="Assets\Statistics.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

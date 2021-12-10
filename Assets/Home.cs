@@ -7,20 +7,17 @@ using UnityEngine.UI;
 
 public class Home : MonoBehaviour
 {
-    public GameObject Canvas, CanvasSetting, Coin, Coin2, Player;
+    public GameObject Canvas, CanvasStat, Coin, Coin2, Player;
     public GameObject TxtLetter, TxtLevel;
     public double prob;
-    public int level, letter, correct, notcorrect;
+    public int level, letter;
     public GameObject BG1, BG2, BG3, BG4, BG5, BG6;
-    public  Sound sound;
-    public ChangeCard changecard;
 
     public void Play()
     {
         Coin.gameObject.SetActive(true);
         Coin2.gameObject.SetActive(true);
         Player.gameObject.SetActive(true);
-
         switch (level)
         {
             case 1: //Easy
@@ -47,13 +44,9 @@ public class Home : MonoBehaviour
                 prob = 0.5; //50% of words are written
                 break;
             }
- }
-
-        correct += sound.correct3;
-        correct += changecard.correct2;
-        notcorrect += sound.notcorrect3;
-        notcorrect += changecard.notcorrect2;
+        }
     }
+
     public void LowerLevel()
     {
         if (level > 1)
@@ -98,9 +91,9 @@ public class Home : MonoBehaviour
                     TxtLetter.GetComponent<TMP_Text>().text = "G";
             }
         }
-    public void Setting()
+    public void Statistics()
     {
-        CanvasSetting.gameObject.SetActive(true);
         gameObject.SetActive(false);
+        CanvasStat.gameObject.SetActive(true);
     }
 }
