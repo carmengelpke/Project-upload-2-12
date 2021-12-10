@@ -9,17 +9,16 @@ public class PlayerMovement : MonoBehaviour
 {
     public float increment, speed;
     public Vector2 targetPos;
-    private float collectedCoins = 0;
-    public List<float> possiblePosition;
+    public static int collectedCoins = 0;
     private Vector2 newPos, newPos2;
     public GameObject Canvas1, Canvas2, Canvas3, CanvasMenu, CanvasHome, CanvasMessage, CanvasFinish, CanvasStat;
-    public GameObject Coin1, Coin2;
+    public GameObject Coin1, Coin2, Baloon1, Baloon2, Baloon3;
     public Home home;
     public static int totalCorrect = 0;
     public static int totalNotCorrect = 0;
     private double val;
     public float timeLeft = 5.0f;
-    private bool randomUpdate = false;
+    private bool randomUpdate = false, updateCoins = false;
     public void Awake()
     {
         targetPos = transform.position;
@@ -30,15 +29,32 @@ public class PlayerMovement : MonoBehaviour
         val = home.prob; // val defines the difficulty of the game (Easy, Medium, Hard)
         if (collectedCoins >= 5)
         {
+            updateCoins = true;
             if (Random.value > val) // decides if either sound or picture is presented, based on difficulty
             {
+                collectedCoins = 0;
+                updateCoins = false;
                 Canvas3.gameObject.SetActive(true);
             }
             else
             {
+                collectedCoins = 0;
+                updateCoins = false;
                 Canvas2.gameObject.SetActive(true);
             }
-            collectedCoins = 0;
+        }
+
+        if (totalNotCorrect == 5)
+        {
+            Baloon3.gameObject.SetActive(false);
+        }
+        if (totalNotCorrect == 10)
+        {
+            Baloon2.gameObject.SetActive(false);
+        }
+        if (totalNotCorrect == 15)
+        {
+            Baloon1.gameObject.SetActive(false);
         }
        
         if (totalCorrect >= 5)  // code to change te background after x correct answers
@@ -184,25 +200,5 @@ public class PlayerMovement : MonoBehaviour
         Canvas2.gameObject.SetActive(false);
         CanvasMenu.gameObject.SetActive(false);
         gameObject.SetActive(false);
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        int rand = Random.Range(0, possiblePosition.Count);
-        int rand2 = Random.Range(0, possiblePosition.Count);
-        newPos.x = possiblePosition.ElementAt(rand);
-        newPos.y = 8f;
-        newPos2.x = possiblePosition.ElementAt(rand2);
-        newPos2.y = 8f;
-        
-        if (other.gameObject.name == "Coin")
-        {
-            collectedCoins+=1;
-            other.gameObject.transform.position = newPos;
-        }
-        if (other.gameObject.name == "Coin2")
-        {
-            collectedCoins+=1;
-            other.gameObject.transform.position = newPos2;
-        }
     }
 }
