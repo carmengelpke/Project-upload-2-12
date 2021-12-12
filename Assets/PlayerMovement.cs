@@ -10,13 +10,13 @@ public class PlayerMovement : MonoBehaviour
 {
     public float increment, speed;
     public Vector2 targetPos;
-    private float collectedCoins = 0; 
-    private float coinCounter = 0;
+    public static float collectedCoins = 0; 
+    public static float coinCounter = 0;
     private float coinSaver1, coinSaver2;
     public List<float> possiblePosition;
     private Vector2 newPos, newPos2;
     public GameObject Canvas1, Canvas2, Canvas3, CanvasMenu, CanvasHome, CanvasMessage, CanvasFinish, CanvasStat;
-    public GameObject Coin1, Coin2, TxtBar;
+    public GameObject Coin1, Coin2, TxtBar1, TxtBar2;
     public Home home;
     public static int totalCorrect = 0;
     public static int totalNotCorrect = 0;
@@ -164,7 +164,8 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        TxtBar.GetComponent<TMP_Text>().text = "Gems collected: " + collectedCoins.ToString();
+        TxtBar1.GetComponent<TMP_Text>().text = "Gems collected: " + collectedCoins.ToString();
+        TxtBar2.GetComponent<TMP_Text>().text = "Total correct: " + totalCorrect.ToString();
     }
 
     public void MoveLeft()

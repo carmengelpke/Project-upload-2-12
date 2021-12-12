@@ -95,7 +95,6 @@ public class Sound : MonoBehaviour
         gameObject.SetActive(false);
         timeLeft = 5.0f;
         randomUpdate = true;
-        Debug.Log(PlayerMovement.totalNotCorrect);
         Coin1.gameObject.SetActive(true);
         Coin2.gameObject.SetActive(true);
     }

@@ -20,6 +20,8 @@ public class Home : MonoBehaviour
         Coin2.gameObject.SetActive(true);
         Player.gameObject.SetActive(true);
         Time.timeScale = 1;
+        PlayerMovement.coinCounter = 0;
+        PlayerMovement.collectedCoins = 0;
         switch (level)
         {
             case 1: //Easy
