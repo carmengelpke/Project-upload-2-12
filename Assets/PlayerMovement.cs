@@ -1,28 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
-using System.IO;
 using TMPro;
-using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float increment, speed;
     public Vector2 targetPos;
-    public static float collectedCoins = 0; 
-    public static float coinCounter = 0;
-    private float coinSaver1, coinSaver2;
-    public List<float> possiblePosition;
+    public static int collectedCoins = 0; 
+    public static int coinCounter = 0;
+    private int coinSaver1, coinSaver2;
     private Vector2 newPos, newPos2;
-    public GameObject Canvas1, Canvas2, Canvas3, CanvasMenu, CanvasHome, CanvasMessage, CanvasFinish, CanvasStat;
-    public GameObject Coin1, Coin2, TxtBar1, TxtBar2;
+    public GameObject Canvas1, Canvas2, Canvas3, CanvasMenu, CanvasHome, CanvasMessage, CanvasFinish, CanvasStat, CanvasNoLives;
+    public GameObject Coin1, Coin2, TxtBar1, TxtBar2, Baloon1, Baloon2, Baloon3;
     public Home home;
     public static int totalCorrect = 0;
     public static int totalNotCorrect = 0;
     private double val;
     public float timeLeft = 3.0f;
-    private bool randomUpdate = false;
+    private bool boolBackGround = false, updateCoins = false, boolBaloon = false;
     public void Awake()
     {
         targetPos = transform.position;
@@ -31,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, targetPos, speed*Time.deltaTime);
         val = home.prob; // val defines the difficulty of the game (Easy, Medium, Hard)
-        if (coinCounter >= 5)
+        if (collectedCoins >= 5)
         {
             updateCoins = true;
             if (Random.value > val) // decides if either sound or picture is presented, based on difficulty
@@ -46,10 +40,10 @@ public class PlayerMovement : MonoBehaviour
                 updateCoins = false;
                 Canvas2.gameObject.SetActive(true);
             }
-            coinCounter -= 5;
+            // coinCounter -= 5;
         }
 
-        if (totalNotCorrect == 5)
+        if (totalNotCorrect == 5) // removing 1 baloon every 5 wrong answer
         {
             Baloon3.gameObject.SetActive(false);
         }
@@ -60,20 +54,35 @@ public class PlayerMovement : MonoBehaviour
         if (totalNotCorrect == 15)
         {
             Baloon1.gameObject.SetActive(false);
+            CanvasNoLives.gameObject.SetActive(true);
+            Canvas1.gameObject.SetActive(false);
+            Canvas2.gameObject.SetActive(false);
+            Coin1.gameObject.SetActive(false);
+            Coin2.gameObject.SetActive(false);
+            timeLeft -= Time.deltaTime;
+            if (timeLeft <= 0.0f)
+            {
+                boolBaloon = true;
+            }
+            if (boolBaloon)
+            {
+                CanvasNoLives.gameObject.SetActive(false);
+                timeLeft = 5.0f;
+                CanvasHome.gameObject.SetActive(true);
+            }
         }
        
         if (totalCorrect == 5)  // code to change te background after x correct answers
         {
-
             coinSaver1 = coinCounter;
             coinSaver2 = collectedCoins;
             timeLeft -= Time.deltaTime;
             CanvasMessage.gameObject.SetActive(true);
             if (timeLeft <= 0.0f)
             {
-                randomUpdate = true;
+                boolBackGround = true;
             }
-            if (randomUpdate)
+            if (boolBackGround)
             {
                 CanvasMessage.gameObject.SetActive(false);
                 timeLeft = 3.0f;
@@ -91,9 +100,9 @@ public class PlayerMovement : MonoBehaviour
             CanvasMessage.gameObject.SetActive(true);
             if (timeLeft <= 0.0f)
             {
-                randomUpdate = true;
+                boolBackGround = true;
             }
-            if (randomUpdate)
+            if (boolBackGround)
             {
                 CanvasMessage.gameObject.SetActive(false);
                 timeLeft = 3.0f;
@@ -111,9 +120,9 @@ public class PlayerMovement : MonoBehaviour
             CanvasMessage.gameObject.SetActive(true);
             if (timeLeft <= 0.0f)
             {
-                randomUpdate = true;
+                boolBackGround = true;
             }
-            if (randomUpdate)
+            if (boolBackGround)
             {
                 CanvasMessage.gameObject.SetActive(false);
                 timeLeft = 3.0f;
@@ -131,9 +140,9 @@ public class PlayerMovement : MonoBehaviour
             coinSaver2 = collectedCoins;
             if (timeLeft <= 0.0f)
             {
-                randomUpdate = true;
+                boolBackGround = true;
             }
-            if (randomUpdate)
+            if (boolBackGround)
             {
                 CanvasMessage.gameObject.SetActive(false);
                 timeLeft = 3.0f;
@@ -151,9 +160,9 @@ public class PlayerMovement : MonoBehaviour
             coinSaver2 = collectedCoins;
             if (timeLeft <= 0.0f)
             {
-                randomUpdate = true;
+                boolBackGround = true;
             }
-            if (randomUpdate)
+            if (boolBackGround)
             {
                 CanvasMessage.gameObject.SetActive(false);
                 timeLeft = 3.0f;
@@ -167,18 +176,20 @@ public class PlayerMovement : MonoBehaviour
         {
             timeLeft -= Time.deltaTime;
             CanvasFinish.gameObject.SetActive(true);
+            Canvas1.gameObject.SetActive(false);
+            Canvas2.gameObject.SetActive(false);
+            Coin1.gameObject.SetActive(false);
+            Coin2.gameObject.SetActive(false);
             if (timeLeft <= 0.0f)
             {
-                randomUpdate = true;
+                boolBackGround = true;
             }
-            if (randomUpdate)
+            if (boolBackGround)
             {
                 CanvasFinish.gameObject.SetActive(false);
                 timeLeft = 3.0f;
                 home.BG6.gameObject.SetActive(false);
                 CanvasHome.gameObject.SetActive(true);
-                Coin1.gameObject.SetActive(false);
-                Coin2.gameObject.SetActive(false);
             }
         }
 
@@ -233,27 +244,5 @@ public class PlayerMovement : MonoBehaviour
         Canvas2.gameObject.SetActive(false);
         CanvasMenu.gameObject.SetActive(false);
         gameObject.SetActive(false);
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        int rand = Random.Range(0, possiblePosition.Count);
-        int rand2 = Random.Range(0, possiblePosition.Count);
-        newPos.x = possiblePosition.ElementAt(rand);
-        newPos.y = 8f;
-        newPos2.x = possiblePosition.ElementAt(rand2);
-        newPos2.y = 8f;
-        
-        if (other.gameObject.name == "Coin")
-        {
-            collectedCoins+=1;
-            coinCounter+=1;
-            other.gameObject.transform.position = newPos;
-        }
-        if (other.gameObject.name == "Coin2")
-        {
-            collectedCoins+=1;
-            coinCounter+=1;
-            other.gameObject.transform.position = newPos2;
-        }
     }
 }
