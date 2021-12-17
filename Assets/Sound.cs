@@ -9,6 +9,7 @@ public class Sound : MonoBehaviour
     private int soft = 1, hard = 0, val, rand;
     public GameObject Timer;
     public GameObject Coin1, Coin2;
+    public GameObject CanvasCorrect, CanvasWrong;
     public float timeLeft = 5.0f;
     public Home home;
     private bool randomUpdate = true;
@@ -41,11 +42,10 @@ public class Sound : MonoBehaviour
         if (timeLeft <= 0.0f)
         {
             PlayerMovement.totalNotCorrect += 1;
+            CanvasWrong.gameObject.SetActive(true);
             gameObject.SetActive(false);
             timeLeft = 5.0f;
             randomUpdate = true;
-            Coin1.gameObject.SetActive(true);
-            Coin2.gameObject.SetActive(true);
         }
     }
     public void ChangeSound()
@@ -87,25 +87,33 @@ public class Sound : MonoBehaviour
     public void SoftSound()
     {
         if (val == soft)
+        {
             PlayerMovement.totalCorrect += 1;
-        else 
+            CanvasCorrect.gameObject.SetActive(true);
+        }
+        else
+        {
             PlayerMovement.totalNotCorrect += 1;
+            CanvasWrong.gameObject.SetActive(true);
+        }
         gameObject.SetActive(false);
         timeLeft = 5.0f;
         randomUpdate = true;
-        Coin1.gameObject.SetActive(true);
-        Coin2.gameObject.SetActive(true);
     }
     public void HardSound()
     {
         if (val == hard)
+        {
             PlayerMovement.totalCorrect += 1;
+            CanvasCorrect.gameObject.SetActive(true);
+        }
         else 
+        {
             PlayerMovement.totalNotCorrect += 1;
+            CanvasWrong.gameObject.SetActive(true);
+        }
         gameObject.SetActive(false);
         timeLeft = 5.0f;
         randomUpdate = true;
-        Coin1.gameObject.SetActive(true);
-        Coin2.gameObject.SetActive(true);
     }
 }

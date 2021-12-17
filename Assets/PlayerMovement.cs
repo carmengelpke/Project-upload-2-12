@@ -25,22 +25,20 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, targetPos, speed*Time.deltaTime);
         val = home.prob; // val defines the difficulty of the game (Easy, Medium, Hard)
-        if (collectedCoins >= 5)
+        if (coinCounter >= 5)
         {
             updateCoins = true;
             if (Random.value > val) // decides if either sound or picture is presented, based on difficulty
             {
-                collectedCoins = 0;
                 updateCoins = false;
                 Canvas3.gameObject.SetActive(true);
             }
             else
-            {
-                collectedCoins = 0;
+            { 
                 updateCoins = false;
                 Canvas2.gameObject.SetActive(true);
             }
-            // coinCounter -= 5;
+            coinCounter -= 5;
         }
 
         if (totalNotCorrect == 5) // removing 1 baloon every 5 wrong answer

@@ -18,11 +18,13 @@ public class Collision : MonoBehaviour
         if (other.gameObject.name == "Coin")
         {
             PlayerMovement.collectedCoins += 1;
+            PlayerMovement.coinCounter += 1;
             other.gameObject.transform.position = newPos;
         }
         if (other.gameObject.name == "Coin2")
         {
             PlayerMovement.collectedCoins += 1;
+            PlayerMovement.coinCounter += 1;
             other.gameObject.transform.position = newPos2;
         }
     }

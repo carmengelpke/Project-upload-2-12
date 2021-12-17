@@ -14,6 +14,7 @@ public class ChangeCard : MonoBehaviour
     public int val, rand;
     public GameObject Photo, Txt, Timer;
     public GameObject Coin1, Coin2;
+    public GameObject CanvasCorrect, CanvasWrong;
     public float timeLeft = 5.0f;
     public Home home;
     private bool randomUpdate = true;
@@ -47,11 +48,10 @@ public class ChangeCard : MonoBehaviour
         if (timeLeft <= 0.0f)
         {
             PlayerMovement.totalNotCorrect += 1;
+            CanvasWrong.gameObject.SetActive(true);
             gameObject.SetActive(false);
             timeLeft = 5.0f;
             randomUpdate = true;
-            Coin1.gameObject.SetActive(true);
-            Coin2.gameObject.SetActive(true);
         }
     }
     public void ChangeImg()
@@ -92,6 +92,7 @@ public class ChangeCard : MonoBehaviour
         theColor = theSoftSoundButton.colors;
         if (val == soft)
         {
+<<<<<<< HEAD
            PlayerMovement.totalCorrect += 1;
            theColor.pressedColor = Color.green;
 
@@ -102,12 +103,20 @@ public class ChangeCard : MonoBehaviour
             theColor.pressedColor = Color.red;
 
          }
+=======
+            PlayerMovement.totalCorrect += 1;
+            CanvasCorrect.gameObject.SetActive(true);
+        }
+        else 
+        {
+            PlayerMovement.totalNotCorrect += 1;
+            CanvasWrong.gameObject.SetActive(true);
+        }
+>>>>>>> main
         gameObject.SetActive(false);
         timeLeft = 5.0f;
         theSoftSoundButton.colors = theColor;
         randomUpdate = true;
-        Coin1.gameObject.SetActive(true);
-        Coin2.gameObject.SetActive(true);
     }
     public void HardSound()
     {
@@ -115,17 +124,23 @@ public class ChangeCard : MonoBehaviour
         if (val == hard)
         {
             PlayerMovement.totalCorrect += 1;
+<<<<<<< HEAD
             theColor.pressedColor = Color.green;
+=======
+            CanvasCorrect.gameObject.SetActive(true);
+>>>>>>> main
         }
         else
         {
             PlayerMovement.totalNotCorrect += 1;
+<<<<<<< HEAD
             theColor.pressedColor = Color.red;
+=======
+            CanvasWrong.gameObject.SetActive(true);
+>>>>>>> main
         }
         gameObject.SetActive(false);
         timeLeft = 5.0f;
         randomUpdate = true;
-        Coin1.gameObject.SetActive(true);
-        Coin2.gameObject.SetActive(true);
     }
 }
