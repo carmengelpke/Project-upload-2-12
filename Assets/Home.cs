@@ -12,6 +12,7 @@ public class Home : MonoBehaviour
 
     public void Play()
     {
+        PlayerMovement.audioSource.Play();
         Coin.gameObject.SetActive(true);
         Coin2.gameObject.SetActive(true);
         Player.gameObject.SetActive(true);

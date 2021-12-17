@@ -17,13 +17,18 @@ public class PlayerMovement : MonoBehaviour
     private double val;
     public float timeLeft = 3.0f;
     private bool boolBackGround = false, updateCoins = false, boolBaloon = false;
+    public static AudioSource audioSource;
+    public AudioClip bgMusic;
+    
     public void Awake()
     {
         targetPos = transform.position;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = bgMusic;
     }
     public void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed*Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
         val = home.prob; // val defines the difficulty of the game (Easy, Medium, Hard)
         if (coinCounter >= 5)
         {
@@ -34,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
                 Canvas3.gameObject.SetActive(true);
             }
             else
-            { 
+            {
                 updateCoins = false;
                 Canvas2.gameObject.SetActive(true);
             }
@@ -212,24 +217,28 @@ public class PlayerMovement : MonoBehaviour
 
     public void Pause()
     {
+        Time.timeScale = 0;
+        audioSource.Pause();
         Canvas1.gameObject.SetActive(false);
         Canvas2.gameObject.SetActive(false);
         Coin1.gameObject.SetActive(false);
         Coin2.gameObject.SetActive(false);
         CanvasMenu.gameObject.SetActive(true);
-        Time.timeScale = 0;
     }
     public void Resume()
     {
+        Time.timeScale = 1;
+        audioSource.Play();
         Canvas1.gameObject.SetActive(true);
         Coin1.gameObject.SetActive(true);
         Coin2.gameObject.SetActive(true);
         Canvas2.gameObject.SetActive(false);
         CanvasMenu.gameObject.SetActive(false);
-        Time.timeScale = 1;
     }
     public void Home()
     {
+        Time.timeScale = 0;
+        audioSource.Pause();
         Canvas1.gameObject.SetActive(false);
         Canvas2.gameObject.SetActive(false);
         CanvasMenu.gameObject.SetActive(false);
@@ -237,6 +246,8 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Statistics()
     {
+        Time.timeScale = 0;
+        audioSource.Pause();
         CanvasStat.gameObject.SetActive(true);
         Canvas1.gameObject.SetActive(false);
         Canvas2.gameObject.SetActive(false);
