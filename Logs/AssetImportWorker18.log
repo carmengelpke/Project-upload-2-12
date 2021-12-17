@@ -1,0 +1,21 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.18f1 (a7d1c678663c) revision 10998214'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 22000.318; Version 2009; 64bit' Language: 'fr' Physical Memory: 3902 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+COMMAND LINE ARGUMENTS:
+D:\Programmes\2020.3.18f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker18
+-projectPath
+D:/Documents/Cours3A/EHP13-12
+-logFile
+Logs/AssetImportWorker18.log
+-srvPort
+52210
+Successfully changed project path to: D:/Documents/Cours3A/EHP13-12
+D:/Documents/Cours3A/EHP13-12
+Using Asset Import Pipeline V2.

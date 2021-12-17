@@ -2,6 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using TMPro;
+
 
 public class ChangeCard : MonoBehaviour
 {
@@ -16,6 +18,9 @@ public class ChangeCard : MonoBehaviour
     public float timeLeft = 5.0f;
     public Home home;
     private bool randomUpdate = true;
+    public Button theHardSoundButton, theSoftSoundButton;
+    private ColorBlock theColor;
+    
     public void Update()
     {
         Coin1.gameObject.SetActive(false);
@@ -56,7 +61,7 @@ public class ChangeCard : MonoBehaviour
             rand = Random.Range(0, sprite.Length);
             randomUpdate = false;
             Photo.GetComponent<Image>().overrideSprite = sprite[rand];
-            Txt.GetComponent<Text>().text = names[rand];
+            Txt.GetComponent<TMP_Text>().text = names[rand];
             val = valori[rand];
         }
     }
@@ -67,7 +72,7 @@ public class ChangeCard : MonoBehaviour
             rand = Random.Range(0, sprite2.Length);
             randomUpdate = false;
             Photo.GetComponent<Image>().overrideSprite = sprite2[rand];
-            Txt.GetComponent<Text>().text = names2[rand];
+            Txt.GetComponent<TMP_Text>().text = names2[rand];
             val = valori2[rand];
         }
     }
@@ -78,14 +83,27 @@ public class ChangeCard : MonoBehaviour
             rand = Random.Range(0, sprite3.Length);
             randomUpdate = false;
             Photo.GetComponent<Image>().overrideSprite = sprite3[rand];
-            Txt.GetComponent<Text>().text = names3[rand];
+            Txt.GetComponent<TMP_Text>().text = names3[rand];
             val = valori3[rand];
         }
     }
     public void SoftSound()
     {
+        theColor = theSoftSoundButton.colors;
         if (val == soft)
         {
+<<<<<<< HEAD
+           PlayerMovement.totalCorrect += 1;
+           theColor.pressedColor = Color.green;
+
+         }
+        else 
+        {    
+            PlayerMovement.totalNotCorrect += 1;
+            theColor.pressedColor = Color.red;
+
+         }
+=======
             PlayerMovement.totalCorrect += 1;
             CanvasCorrect.gameObject.SetActive(true);
         }
@@ -94,21 +112,32 @@ public class ChangeCard : MonoBehaviour
             PlayerMovement.totalNotCorrect += 1;
             CanvasWrong.gameObject.SetActive(true);
         }
+>>>>>>> main
         gameObject.SetActive(false);
         timeLeft = 5.0f;
+        theSoftSoundButton.colors = theColor;
         randomUpdate = true;
     }
     public void HardSound()
     {
+        theColor = theHardSoundButton.colors;
         if (val == hard)
         {
             PlayerMovement.totalCorrect += 1;
+<<<<<<< HEAD
+            theColor.pressedColor = Color.green;
+=======
             CanvasCorrect.gameObject.SetActive(true);
+>>>>>>> main
         }
         else
         {
             PlayerMovement.totalNotCorrect += 1;
+<<<<<<< HEAD
+            theColor.pressedColor = Color.red;
+=======
             CanvasWrong.gameObject.SetActive(true);
+>>>>>>> main
         }
         gameObject.SetActive(false);
         timeLeft = 5.0f;
